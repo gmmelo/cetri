@@ -5,8 +5,8 @@
 #define EMPTY_SPACE 58    // :
 
 // Characters defining spaced output
-#define SQUARE_LEFT 133   // [
-#define SQUARE_RIGHT 135  // ]
+#define SQUARE_LEFT 91    // [
+#define SQUARE_RIGHT 93   // ]
 
 // Global constants
 #define GRID_WIDTH 12
@@ -28,6 +28,10 @@ int main()
                 grid[y][x] = '\n';
         }
     
+    // Set some example blocks as filled
+    // TODO: REMOVE
+    grid[4][3] = grid[5][3] = grid[5][4] = grid[6][4] = FILLED_SPACE;
+
     // Display the double spaced output
     for (int y = 0; y < GRID_HEIGHT; ++y)
         for (int x = 0; x <= GRID_WIDTH; ++x)
