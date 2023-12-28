@@ -16,18 +16,31 @@
 /* This is the bulk game code. In the future, if the project is pursued, the plan is to modularize aspects and create updated versions. */
 int main()
 {
+    // Create a grid with (y, x) coordinates.
     char grid[GRID_HEIGHT][GRID_WIDTH + 1];
 
     // Clear the grid
-    for (int y = 0; y < GRID_HEIGHT; ++y) {
-        for(int x = 0; x < GRID_WIDTH; ++x) {
-            if (x < GRID_WIDTH - 1)
-                grid[x][y] = EMPTY_SPACE;
+    for (int y = 0; y < GRID_HEIGHT; ++y)
+        for(int x = 0; x <= GRID_WIDTH; ++x) {
+            if (x < GRID_WIDTH)
+                grid[y][x] = EMPTY_SPACE;
             else
-                grid[x][y] = '\n';
+                grid[y][x] = '\n';
         }
-    }
-
+    
     // Display the double spaced output
-
+    for (int y = 0; y < GRID_HEIGHT; ++y)
+        for (int x = 0; x <= GRID_WIDTH; ++x)
+            switch (grid[y][x]) {
+                case EMPTY_SPACE:
+                    putchar(EMPTY_SPACE);
+                    putchar(EMPTY_SPACE);
+                    break;
+                case FILLED_SPACE:
+                    putchar(SQUARE_LEFT);
+                    putchar(SQUARE_RIGHT);
+                    break;
+                default:
+                    putchar('\n');
+            }
 }
